@@ -69,4 +69,49 @@
 	</joint>
 
 	<!-- Add support casters, sensors, and Gazebo plugins here as needed. -->
+
+
+
+    <!--this comment will serve as a plan for future aspects of the project.
+    
+        - in the future we need to add more tags to our robot to account to aspects of it's design. 
+
+        1) we need to add lidar sensors to the URDF for proper navigation and mapping.
+        2) we need to add the back two dumb wheels to the URDF file to model our design
+        3) we need to properly model the correct dimensions of the robot in the URDF file to match our design.
+        4) we need to account for the internal components of the robot in the URDF file to properly model the robot's weight and center of mass
+        5) we need to make sure the URDF file is compatible with Gazebo and ROS 2 jazzy to ensure proper simulation and control of the robot.
+        6) we need to add the proper Gazebo plugins to the URDF file to ensure proper simulation and control of the robot.
+        7) we need to add the proper ROS 2 control tags to the URDF file to ensure proper simulation and control of the robot.
+        8) we need to add the proper ROS 2 navigation tags to the URDF file to ensure proper simulation and control of the robot.
+        9) we need to add the proper ROS 2 mapping tags to the URDF file to ensure proper simulation and control of the robot.
+        10) we need to add the proper ROS 2 visualization tags to the URDF file to ensure proper simulation and control of the robot.
+        11) we need to add the proper ROS 2 communication tags to the URDF file to ensure proper simulation and control of the robot.
+        12) We need to make sure a NAV 2 stack is properly implemented in the URDF file to ensure proper simulation and control of the robot.
+        13) We need to make sure a SLAM 2 stack is properly implemented in the URDF file to ensure proper simulation and control of the robot.
+        14) have fun
+
+
+
+    
+    
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </robot>
