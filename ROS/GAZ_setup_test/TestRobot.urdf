@@ -73,7 +73,6 @@
 
 
     <!--this comment will serve as a plan for future aspects of the project.
-    
         - in the future we need to add more tags to our robot to account to aspects of it's design. 
 
         1) we need to add lidar sensors to the URDF for proper navigation and mapping.
@@ -93,8 +92,30 @@
 
 
 
-    
-    
+
+        -Claude wants me to install these packages but im not sure if i already have them or they are compatible with previous stuff we did with wudy
+        sudo apt install ros-jazzy-ros-gz ros-jazzy-teleop-twist-keyboard ros-jazzy-xacro' Specifically, the xarco is throwing me off
+        -test code to try once i make sure everything is compatible with Gazebo and ROS 2 jazzy. it just imports the downloaded packages and lets them communicate with stuff. I have to enure two things first
+
+        1) is this implementing with what we need it to
+        2) i need to add the proper tags to match up to our project since this file is just a template of a very basic robot
+
+        <gazebo>
+        <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+            <left_joint>left_wheel_joint</left_joint>
+            <right_joint>right_wheel_joint</right_joint>
+            <wheel_separation>0.4</wheel_separation>
+            <wheel_radius>0.1</wheel_radius>
+            <topic>cmd_vel</topic>
+            <odom_topic>odom</odom_topic>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_link</child_frame_id>
+        </plugin>
+        <plugin filename="gz-sim-joint-state-publisher-system"
+                name="gz::sim::systems::JointStatePublisher">
+            <topic>joint_states</topic>
+        </plugin>
+        </gazebo>
     -->
 
 
