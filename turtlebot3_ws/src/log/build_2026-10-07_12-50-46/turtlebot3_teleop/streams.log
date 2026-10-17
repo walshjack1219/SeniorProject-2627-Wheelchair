@@ -1,0 +1,23 @@
+[0.490s] Invoking command in '/home/jack/turtlebot3_ws/src/build/turtlebot3_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jack/turtlebot3_ws/src/build/turtlebot3_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jack/turtlebot3_ws/src/install/turtlebot3_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jack/turtlebot3_ws/src/build/turtlebot3_teleop/build --no-deps symlink_data
+[0.573s] /usr/local/lib/python3.12/dist-packages/setuptools/_distutils/dist.py:287: UserWarning: Unknown distribution option: 'tests_require'
+[0.573s]   warnings.warn(msg)
+[0.592s] /usr/local/lib/python3.12/dist-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+[0.592s] !!
+[0.592s] 
+[0.592s]         ********************************************************************************
+[0.592s]         Please consider removing the following classifiers in favor of a SPDX license expression:
+[0.592s] 
+[0.592s]         License :: OSI Approved :: Apache Software License
+[0.592s] 
+[0.592s]         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+[0.592s]         ********************************************************************************
+[0.592s] 
+[0.592s] !!
+[0.592s]   self._finalize_license_expression()
+[0.601s] usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+[0.601s]    or: setup.py --help [cmd1 cmd2 ...]
+[0.601s]    or: setup.py --help-commands
+[0.601s]    or: setup.py cmd --help
+[0.601s] 
+[0.602s] error: option --editable not recognized
+[0.612s] Invoked command in '/home/jack/turtlebot3_ws/src/build/turtlebot3_teleop' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jack/turtlebot3_ws/src/build/turtlebot3_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jack/turtlebot3_ws/src/install/turtlebot3_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jack/turtlebot3_ws/src/build/turtlebot3_teleop/build --no-deps symlink_data
