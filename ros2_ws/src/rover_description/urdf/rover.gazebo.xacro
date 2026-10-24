@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+  rover.gazebo.xacro : everything specific to Gazebo Harmonic.
+  Uses properties (wheel_radius, track_width, lidar_fov) defined in rover.urdf.xacro.
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ================= Wheel friction ================= -->
+  <!-- A 4-wheel skid-steer robot turns by sliding its wheels sideways.
+       Lowering mu2 (lateral friction) lets it turn without fighting itself. -->
+  <xacro:macro name="wheel_friction" params="link">
+    <gazebo reference="${link}">
+      <mu1>1.0</mu1>
+      <mu2>0.5</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:wheel_friction link="front_left_wheel_link"/>
+  <xacro:wheel_friction link="front_right_wheel_link"/>
+  <xacro:wheel_friction link="rear_left_wheel_link"/>
+  <xacro:wheel_friction link="rear_right_wheel_link"/>
+
+  <!-- ================= Drive system ================= -->
+  <!-- DiffDrive accepts multiple joints per side, which makes it a skid-steer controller.
+       It listens on /cmd_vel and publishes /odom plus the odom -> base_footprint transform. -->
+  <gazebo>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>front_left_wheel_joint</left_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>front_right_wheel_joint</right_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+
+      <wheel_separation>${track_width}</wheel_separation>
+      <wheel_radius>${wheel_radius}</wheel_radius>
+
+      <max_linear_acceleration>1.0</max_linear_acceleration>
+      <max_angular_acceleration>2.0</max_angular_acceleration>
+
+      <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+    </plugin>
+
+    <!-- Publishes all four wheel joint positions/velocities (the simulated encoders) -->
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <topic>/joint_states</topic>
+    </plugin>
+  </gazebo>
+
+  <!-- ================= Lidar sensors ================= -->
+  <xacro:macro name="gz_lidar" params="link topic">
+    <gazebo reference="${link}">
+      <sensor name="${link}_sensor" type="gpu_lidar">
+        <!-- Without gz_frame_id, Gazebo stamps scans with a frame name ROS doesn't know -->
+        <gz_frame_id>${link}</gz_frame_id>
+        <topic>${topic}</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>540</samples>
+              <resolution>1</resolution>
+              <min_angle>${-lidar_fov/2}</min_angle>
+              <max_angle>${lidar_fov/2}</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.12</min>
+            <max>12.0</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </lidar>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:gz_lidar link="front_lidar_link" topic="/scan_front"/>
+  <xacro:gz_lidar link="rear_lidar_link"  topic="/scan_rear"/>
+
+</robot>

@@ -1,0 +1,33 @@
+[0.008s] Invoking command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description
+[0.018s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.179s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.233s] -- Configuring done (0.2s)
+[0.234s] -- Generating done (0.0s)
+[0.235s] -- Build files have been written to: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description
+[0.237s] Invoked command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description
+[0.238s] Invoking command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description -- -j32 -l32
+[0.284s] Invoked command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description -- -j32 -l32
+[0.294s] Invoking command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description
+[0.305s] -- Install configuration: ""
+[0.306s] -- Execute custom install script
+[0.307s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/urdf/rover.gazebo.xacro
+[0.320s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/urdf/rover.urdf.xacro
+[0.336s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/launch/sim.launch(3).py
+[0.352s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/launch/sim.launch.py
+[0.367s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/worlds/rover_world.sdf
+[0.383s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/package_run_dependencies/rover_description
+[0.398s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/parent_prefix_path/rover_description
+[0.414s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.sh
+[0.426s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.dsv
+[0.437s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/path.sh
+[0.451s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/path.dsv
+[0.465s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.bash
+[0.480s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.sh
+[0.495s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.zsh
+[0.511s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.dsv
+[0.525s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/package.dsv
+[0.537s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/packages/rover_description
+[0.543s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig.cmake
+[0.550s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig-version.cmake
+[0.555s] -- Symlinking: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/package.xml
+[0.562s] Invoked command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description

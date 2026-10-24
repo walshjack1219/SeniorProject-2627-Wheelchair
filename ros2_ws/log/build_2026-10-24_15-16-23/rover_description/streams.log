@@ -1,0 +1,46 @@
+[0.009s] Invoking command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description -DCMAKE_INSTALL_PREFIX=/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description
+[0.151s] -- The C compiler identification is GNU 13.3.0
+[0.261s] -- The CXX compiler identification is GNU 13.3.0
+[0.274s] -- Detecting C compiler ABI info
+[0.445s] -- Detecting C compiler ABI info - done
+[0.464s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.470s] -- Detecting C compile features
+[0.471s] -- Detecting C compile features - done
+[0.490s] -- Detecting CXX compiler ABI info
+[0.648s] -- Detecting CXX compiler ABI info - done
+[0.660s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.660s] -- Detecting CXX compile features
+[0.661s] -- Detecting CXX compile features - done
+[0.670s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.783s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.928s] -- Configuring done (0.9s)
+[0.929s] -- Generating done (0.0s)
+[0.930s] -- Build files have been written to: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description
+[0.934s] Invoked command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description -DCMAKE_INSTALL_PREFIX=/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description
+[0.934s] Invoking command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description -- -j32 -l32
+[0.984s] Invoked command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description -- -j32 -l32
+[1.001s] Invoking command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description
+[1.014s] -- Install configuration: ""
+[1.015s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/urdf
+[1.015s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/urdf/rover.urdf.xacro
+[1.015s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/urdf/rover.gazebo.xacro
+[1.015s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/launch
+[1.015s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/launch/sim.launch.py
+[1.016s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/worlds
+[1.016s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/worlds/rover_world.sdf
+[1.016s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/package_run_dependencies/rover_description
+[1.016s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/parent_prefix_path/rover_description
+[1.016s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.sh
+[1.016s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.dsv
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/path.sh
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/path.dsv
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.bash
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.sh
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.zsh
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/local_setup.dsv
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/package.dsv
+[1.017s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/packages/rover_description
+[1.018s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig.cmake
+[1.018s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig-version.cmake
+[1.018s] -- Installing: /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/package.xml
+[1.020s] Invoked command in '/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description
