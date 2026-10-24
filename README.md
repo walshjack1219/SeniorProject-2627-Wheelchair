@@ -2,9 +2,9 @@
 
 ## Members
 
--Dom Armento (Programming Leader)
--Logan Burns (Project Leader)
--Jack Walsh  (Simulation leader)
+-Dom Armento (Programming Lead)
+-Logan Burns (Project/Hardware Lead)
+-Jack Walsh  (Simulation lead)
 
 ## Project
 
