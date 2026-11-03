@@ -318,6 +318,9 @@ message(STATUS "Execute custom install script")
 # install(DIRECTORY "urdf" "launch" "worlds" "DESTINATION" "share/rover_description")
 ament_cmake_symlink_install_directory("/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description" DIRECTORY "urdf" "launch" "worlds" "DESTINATION" "share/rover_description")
 
+# install(PROGRAMS "scripts/wasd_teleop.py" "DESTINATION" "lib/rover_description")
+ament_cmake_symlink_install_programs("/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description" PROGRAMS "scripts/wasd_teleop.py" "DESTINATION" "lib/rover_description")
+
 # install(FILES "/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/rover_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/src/rover_description" FILES "/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/build/rover_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/rover_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

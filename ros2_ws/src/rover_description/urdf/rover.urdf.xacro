@@ -9,21 +9,27 @@
 -->
 <robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- ================= Dimensions ================= -->
-  <xacro:property name="chassis_length"   value="0.60"/>
-  <xacro:property name="chassis_width"    value="0.40"/>
-  <xacro:property name="chassis_height"   value="0.15"/>
-  <xacro:property name="chassis_mass"     value="15.0"/>
-  <xacro:property name="chassis_z_offset" value="0.05"/>  <!-- chassis center height above the wheel axles -->
+  <!-- ================= Dimensions (measured from the prototype) ================= -->
+  <xacro:property name="chassis_length"    value="0.255"/>
+  <xacro:property name="chassis_width"     value="0.150"/>
+  <xacro:property name="chassis_height"    value="0.067"/>  <!-- bottom plate to top of battery -->
+  <xacro:property name="chassis_mass"      value="0.873"/>  <!-- everything except the four wheels -->
+  <xacro:property name="chassis_clearance" value="0.005"/>  <!-- ground to underside of chassis: MEASURE -->
 
-  <xacro:property name="wheel_radius" value="0.10"/>
-  <xacro:property name="wheel_width"  value="0.06"/>
-  <xacro:property name="wheel_mass"   value="1.0"/>
-  <xacro:property name="wheelbase"    value="0.40"/>  <!-- front axle to rear axle -->
-  <xacro:property name="wheel_gap"    value="0.01"/>  <!-- space between chassis side and wheel -->
-  <!-- left wheel center to right wheel center -->
+  <xacro:property name="wheel_radius" value="0.033"/>
+  <xacro:property name="wheel_width"  value="0.024"/>
+  <xacro:property name="wheel_mass"   value="0.026"/>
+  <xacro:property name="wheelbase"    value="0.130"/>  <!-- front axle to rear axle -->
+  <xacro:property name="wheel_gap"    value="0.005"/>  <!-- space between chassis side and wheel -->
+  <!-- left wheel center to right wheel center (computed; check against a tape measure) -->
   <xacro:property name="track_width"  value="${chassis_width + wheel_width + 2*wheel_gap}"/>
 
+  <!-- Derived, do not edit: chassis center height relative to base_link (axle height).
+       The chassis bottom always sits chassis_clearance above the ground, so changing
+       chassis_height can no longer push the box into the floor and lift the wheels. -->
+  <xacro:property name="chassis_z_offset" value="${chassis_clearance + chassis_height/2 - wheel_radius}"/>
+
+  <!-- Lidar values are still placeholders: the prototype has no lidar yet -->
   <xacro:property name="lidar_radius" value="0.04"/>
   <xacro:property name="lidar_height" value="0.05"/>
   <xacro:property name="lidar_mass"   value="0.2"/>

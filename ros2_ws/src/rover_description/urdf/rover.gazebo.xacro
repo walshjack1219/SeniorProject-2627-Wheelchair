@@ -6,12 +6,16 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- ================= Wheel friction ================= -->
-  <!-- A 4-wheel skid-steer robot turns by sliding its wheels sideways.
-       Lowering mu2 (lateral friction) lets it turn without fighting itself. -->
+  <!-- Equal friction in every direction, like a real rubber tire.
+       (Unequal mu1/mu2 without fdir1 gets tied to the WORLD axes, which made the
+       robot lose the ability to turn after rotating ~90 degrees.)
+       Tune this one value to match your tires and floor: ~0.6-0.9 for rubber on
+       dry concrete, lower on smooth tile. -->
+  <xacro:property name="wheel_mu" value="0.7"/>
   <xacro:macro name="wheel_friction" params="link">
     <gazebo reference="${link}">
-      <mu1>1.0</mu1>
-      <mu2>0.5</mu2>
+      <mu1>${wheel_mu}</mu1>
+      <mu2>${wheel_mu}</mu2>
       <kp>1000000.0</kp>
       <kd>100.0</kd>
     </gazebo>

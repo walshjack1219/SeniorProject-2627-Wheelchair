@@ -1,1 +1,1 @@
-xacro;robot_state_publisher;ros_gz_sim;ros_gz_bridge;teleop_twist_keyboard
+xacro;robot_state_publisher;ros_gz_sim;ros_gz_bridge;teleop_twist_keyboard;rclpy;geometry_msgs;python3-pygame
