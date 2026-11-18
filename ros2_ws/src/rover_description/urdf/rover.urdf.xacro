@@ -29,12 +29,12 @@
        chassis_height can no longer push the box into the floor and lift the wheels. -->
   <xacro:property name="chassis_z_offset" value="${chassis_clearance + chassis_height/2 - wheel_radius}"/>
 
-  <!-- Lidar values are still placeholders: the prototype has no lidar yet -->
-  <xacro:property name="lidar_radius" value="0.04"/>
-  <xacro:property name="lidar_height" value="0.05"/>
-  <xacro:property name="lidar_mass"   value="0.2"/>
-  <xacro:property name="lidar_inset"  value="0.05"/>  <!-- distance from chassis edge to lidar center -->
-  <xacro:property name="lidar_fov"    value="${270*pi/180}"/>  <!-- horizontal field of view of each lidar -->
+  <!-- TF-Luna single-point lidars (Benewake datasheet: 35 x 21.25 x 12.5 mm, under 5 g) -->
+  <xacro:property name="tfluna_depth"  value="0.0125"/>   <!-- along the beam -->
+  <xacro:property name="tfluna_width"  value="0.035"/>    <!-- side to side -->
+  <xacro:property name="tfluna_tall"   value="0.02125"/>  <!-- up and down -->
+  <xacro:property name="tfluna_mass"   value="0.005"/>
+  <xacro:property name="tfluna_height" value="0.040"/>    <!-- lens center above the ground: MEASURE -->
 
   <!-- ================= Materials ================= -->
   <material name="orange"><color rgba="1.0 0.5 0.1 1.0"/></material>
@@ -50,6 +50,16 @@
       <inertia ixx="${m*(3*r*r+h*h)/12}" ixy="0" ixz="0"
                iyy="${m*(3*r*r+h*h)/12}" iyz="0"
                izz="${m*r*r/2}"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="box_inertia" params="m x y z">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${m}"/>
+      <inertia ixx="${m*(y*y+z*z)/12}" ixy="0" ixz="0"
+               iyy="${m*(x*x+z*z)/12}" iyz="0"
+               izz="${m*(x*x+y*y)/12}"/>
     </inertial>
   </xacro:macro>
 
@@ -114,29 +124,31 @@
   <xacro:wheel prefix="rear_left"   x_reflect="-1" y_reflect="1"/>
   <xacro:wheel prefix="rear_right"  x_reflect="-1" y_reflect="-1"/>
 
-  <!-- ================= Lidars ================= -->
-  <xacro:macro name="lidar" params="prefix x yaw">
-    <link name="${prefix}_lidar_link">
+  <!-- ================= TF-Luna lidars ================= -->
+  <!-- Each TF-Luna is mounted on the chassis face, lens pointing out along its +x axis.
+       The rear one is rotated 180 degrees so it points backward. -->
+  <xacro:macro name="tfluna" params="prefix x_reflect yaw">
+    <link name="${prefix}_tfluna_link">
       <visual>
-        <geometry><cylinder radius="${lidar_radius}" length="${lidar_height}"/></geometry>
+        <geometry><box size="${tfluna_depth} ${tfluna_width} ${tfluna_tall}"/></geometry>
         <material name="grey"/>
       </visual>
       <collision>
-        <geometry><cylinder radius="${lidar_radius}" length="${lidar_height}"/></geometry>
+        <geometry><box size="${tfluna_depth} ${tfluna_width} ${tfluna_tall}"/></geometry>
       </collision>
-      <xacro:cylinder_inertia m="${lidar_mass}" r="${lidar_radius}" h="${lidar_height}" rpy="0 0 0"/>
+      <xacro:box_inertia m="${tfluna_mass}" x="${tfluna_depth}" y="${tfluna_width}" z="${tfluna_tall}"/>
     </link>
 
-    <joint name="${prefix}_lidar_joint" type="fixed">
+    <joint name="${prefix}_tfluna_joint" type="fixed">
       <parent link="base_link"/>
-      <child link="${prefix}_lidar_link"/>
-      <origin xyz="${x} 0 ${chassis_z_offset + chassis_height/2 + lidar_height/2}" rpy="0 0 ${yaw}"/>
+      <child link="${prefix}_tfluna_link"/>
+      <!-- base_link is at axle height, so subtract wheel_radius from the height above ground -->
+      <origin xyz="${x_reflect*(chassis_length/2 + tfluna_depth/2)} 0 ${tfluna_height - wheel_radius}" rpy="0 0 ${yaw}"/>
     </joint>
   </xacro:macro>
 
-  <!-- Front lidar faces forward; rear lidar is rotated 180 degrees to face backward -->
-  <xacro:lidar prefix="front" x="${chassis_length/2 - lidar_inset}"    yaw="0"/>
-  <xacro:lidar prefix="rear"  x="${-(chassis_length/2 - lidar_inset)}" yaw="${pi}"/>
+  <xacro:tfluna prefix="front" x_reflect="1"  yaw="0"/>
+  <xacro:tfluna prefix="rear"  x_reflect="-1" yaw="${pi}"/>
 
   <!-- ================= Gazebo plugins and sensors ================= -->
   <xacro:include filename="$(find rover_description)/urdf/rover.gazebo.xacro"/>

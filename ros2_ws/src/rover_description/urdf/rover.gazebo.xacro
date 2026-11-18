@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
   rover.gazebo.xacro : everything specific to Gazebo Harmonic.
-  Uses properties (wheel_radius, track_width, lidar_fov) defined in rover.urdf.xacro.
+  Uses properties (wheel_radius, track_width) defined in rover.urdf.xacro.
 -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
@@ -9,9 +9,10 @@
   <!-- Equal friction in every direction, like a real rubber tire.
        (Unequal mu1/mu2 without fdir1 gets tied to the WORLD axes, which made the
        robot lose the ability to turn after rotating ~90 degrees.)
-       Tune this one value to match your tires and floor: ~0.6-0.9 for rubber on
-       dry concrete, lower on smooth tile. -->
-  <xacro:property name="wheel_mu" value="0.7"/>
+       Set for the prototype's small hobby rubber tires on smooth, dry tile: ~0.5.
+       Measure it: put a wheel on a tile, tilt the tile until the wheel starts to
+       slide (block it from rolling), and use tan(angle). Dusty tile is lower. -->
+  <xacro:property name="wheel_mu" value="0.5"/>
   <xacro:macro name="wheel_friction" params="link">
     <gazebo reference="${link}">
       <mu1>${wheel_mu}</mu1>
@@ -57,23 +58,27 @@
     </plugin>
   </gazebo>
 
-  <!-- ================= Lidar sensors ================= -->
-  <xacro:macro name="gz_lidar" params="link topic">
+  <!-- ================= TF-Luna sensors ================= -->
+  <!-- The TF-Luna is a single-point lidar: one distance reading in a 2 degree cone.
+       Gazebo has no cone sensor, so this is a tiny lidar with 5 rays spread across
+       the 2 degree width. tfluna_scan_to_range.py turns the 5 rays into one
+       sensor_msgs/Range reading, the same message a real TF-Luna driver publishes.
+       Values below are from the Benewake TF-Luna datasheet. -->
+  <xacro:macro name="gz_tfluna" params="link topic">
     <gazebo reference="${link}">
       <sensor name="${link}_sensor" type="gpu_lidar">
-        <!-- Without gz_frame_id, Gazebo stamps scans with a frame name ROS doesn't know -->
         <gz_frame_id>${link}</gz_frame_id>
         <topic>${topic}</topic>
-        <update_rate>10</update_rate>
+        <update_rate>100</update_rate>          <!-- datasheet default: 100 Hz (1-250 Hz adjustable) -->
         <always_on>true</always_on>
         <visualize>true</visualize>
         <lidar>
           <scan>
             <horizontal>
-              <samples>540</samples>
+              <samples>5</samples>
               <resolution>1</resolution>
-              <min_angle>${-lidar_fov/2}</min_angle>
-              <max_angle>${lidar_fov/2}</max_angle>
+              <min_angle>${-pi/180}</min_angle>   <!-- 2 degree FOV = +/- 1 degree -->
+              <max_angle>${pi/180}</max_angle>
             </horizontal>
             <vertical>
               <samples>1</samples>
@@ -83,21 +88,21 @@
             </vertical>
           </scan>
           <range>
-            <min>0.12</min>
-            <max>12.0</max>
-            <resolution>0.01</resolution>
+            <min>0.2</min>                       <!-- blind below 20 cm -->
+            <max>8.0</max>                       <!-- 8 m on bright targets; ~2.5 m on dark ones -->
+            <resolution>0.01</resolution>        <!-- 1 cm -->
           </range>
           <noise>
             <type>gaussian</type>
             <mean>0.0</mean>
-            <stddev>0.01</stddev>
+            <stddev>0.03</stddev>                <!-- datasheet accuracy is +/-6 cm up to 3 m -->
           </noise>
         </lidar>
       </sensor>
     </gazebo>
   </xacro:macro>
 
-  <xacro:gz_lidar link="front_lidar_link" topic="/scan_front"/>
-  <xacro:gz_lidar link="rear_lidar_link"  topic="/scan_rear"/>
+  <xacro:gz_tfluna link="front_tfluna_link" topic="/tfluna_front/scan"/>
+  <xacro:gz_tfluna link="rear_tfluna_link"  topic="/tfluna_rear/scan"/>
 
 </robot>
