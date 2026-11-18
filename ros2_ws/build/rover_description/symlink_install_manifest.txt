@@ -2,7 +2,9 @@
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/urdf/rover.urdf.xacro
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/launch/sim.launch.py
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/worlds/rover_world.sdf
+/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/rviz/rover.rviz
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/lib/rover_description/wasd_teleop.py
+/home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/lib/rover_description/tfluna_scan_to_range.py
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/package_run_dependencies/rover_description
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/ament_index/resource_index/parent_prefix_path/rover_description
 /home/jack/Robot Development/SeniorProject-2627-Wheelchair/ros2_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.sh
