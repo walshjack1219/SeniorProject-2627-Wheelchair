@@ -19,6 +19,20 @@ if [ ! -f "$WS/src/rover_description/package.xml" ]; then
   exit 1
 fi
 
+# Close any Gazebo or ROS nodes left over from an earlier run. Two Gazebo
+# servers running at once both drive a rover, and the GUI and RViz flicker
+# between the two robots' positions.
+pkill -f "gz sim" 2>/dev/null
+pkill -f "ros_gz_bridge" 2>/dev/null
+pkill -f "robot_state_publisher" 2>/dev/null
+pkill -f "tfluna_scan_to_range" 2>/dev/null
+pkill -f "wasd_teleop" 2>/dev/null
+sleep 1
+
+# Downloads and git checkouts can drop the "executable" flag on the Python
+# scripts, and ros2 then reports "No executable found". Restore it every time.
+chmod +x "$WS"/src/rover_description/scripts/*.py 2>/dev/null
+
 # Build if asked, or if the workspace has never been built
 BUILD_STEP=""
 if [ "$1" = "--build" ] || [ ! -f "$WS/install/setup.bash" ]; then
